@@ -6,7 +6,10 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/git/COPYING.rst;md5=02897d565cfdaf7d40b593
 
 SRC_URI = "git://github.com/raspberrypi/libcamera.git;protocol=https;branch=main"
 
-SRCREV = "06bbff9c23d5a85acd65595216c6b75094891f72"
+# v0.0.4
+#SRCREV = "6cf637eb253a68edebe59505bea55435fafb00cd"
+# v0.0.5
+SRCREV = "fb44403f1c5571549ac128c21daee9761eb9249c"
 
 PE = "0"
 
