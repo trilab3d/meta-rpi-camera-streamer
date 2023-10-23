@@ -1,20 +1,20 @@
 SUMMARY = "camera-streamer - Yet another camera streamer"
 HOMEPAGE = "https://github.com/ayufan/camera-streamer"
 LICENSE = "GPLv3"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/gpl-3.0.txt;md5=1ebbd3e34237af26da5dc08a4e440464"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/gpl-3.0.txt;md5=e62637ea8a114355b985fd86c9ffbd6e"
 
 SECTION = "multimedia"
 TARGET_CC_ARCH += "${LDFLAGS}"
 
-SRC_URI = "git://github.com/ayufan/camera-streamer.git;protocol=https;branch=master \
+SRC_URI = "gitsm://github.com/ayufan/camera-streamer.git;protocol=https;branch=main \
            file://fix-error-no-unused-result.patch \
            file://gpl-3.0.txt"
 
 SRCREV = "${AUTOREV}"
 
-DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good nlohmann-json vim-native rpi-libcamera"
+DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good nlohmann-json vim-native libcamera cmake-native"
 
-IMAGE_INSTALL:append = "camera-streamer nlohmann-json v4l-utils rpi-libcamera rpi-libcamera-apps"
+IMAGE_INSTALL:append = "camera-streamer nlohmann-json v4l-utils libcamera libcamera-apps cmake"
 
 S = "${WORKDIR}/git"
 

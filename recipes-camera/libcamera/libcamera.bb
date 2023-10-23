@@ -9,7 +9,9 @@ SRC_URI = "git://github.com/raspberrypi/libcamera.git;protocol=https;branch=main
 # v0.0.4
 #SRCREV = "6cf637eb253a68edebe59505bea55435fafb00cd"
 # v0.0.5
-SRCREV = "fb44403f1c5571549ac128c21daee9761eb9249c"
+#SRCREV = "fb44403f1c5571549ac128c21daee9761eb9249c"
+
+SRCREV = "c01d44046f82292a1b41b5a3b63eefb22e52cd20"
 
 PE = "0"
 
@@ -24,8 +26,8 @@ PACKAGECONFIG ??= ""
 PACKAGECONFIG[gst] = "-Dgstreamer=enabled,-Dgstreamer=disabled,gstreamer1.0 gstreamer1.0-plugins-base"
 
 EXTRA_OEMESON = " \
-    -Dpipelines=uvcvideo,simple,vimc,raspberrypi \
-    -Dipas=vimc,raspberrypi \
+    -Dpipelines=uvcvideo,simple,vimc,rpi/vc4 \
+    -Dipas=vimc,rpi/vc4 \
     -Dv4l2=true \
     -Dcam=enabled \
     -Dlc-compliance=disabled \
@@ -43,7 +45,7 @@ do_configure:prepend() {
 
 do_install:append() {
     chrpath -d ${D}${libdir}/libcamera.so
-    chrpath -d ${D}${libdir}/v4l2-compat.so
+    chrpath -d ${D}${libexecdir}/libcamera/v4l2-compat.so
 }
 
 addtask do_recalculate_ipa_signatures_package after do_package before do_packagedata
@@ -60,6 +62,7 @@ do_recalculate_ipa_signatures_package() {
 }
 
 FILES:${PN} += " ${libdir}/"
+FILES:${PN} += " ${libexecdir}/libcamera/"
 FILES:${PN} += " ${datadir}/"
 FILES:${PN}-gst = "${libdir}/gstreamer-1.0"
 
