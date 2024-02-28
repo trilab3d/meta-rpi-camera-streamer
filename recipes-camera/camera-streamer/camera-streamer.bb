@@ -1,7 +1,7 @@
 SUMMARY = "camera-streamer - Yet another camera streamer"
 HOMEPAGE = "https://github.com/ayufan/camera-streamer"
 LICENSE = "GPLv3"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/gpl-3.0.txt;md5=e62637ea8a114355b985fd86c9ffbd6e"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/gpl-3.0.txt;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 SECTION = "multimedia"
 TARGET_CC_ARCH += "${LDFLAGS}"
@@ -10,7 +10,9 @@ SRC_URI = "gitsm://github.com/ayufan/camera-streamer.git;protocol=https;branch=m
            file://fix-error-no-unused-result.patch \
            file://gpl-3.0.txt"
 
-SRCREV = "${AUTOREV}"
+#SRCREV = "${AUTOREV}"
+
+SRCREV = "ff539cda26780b79fc9ec6f8d7e194051153b675"
 
 DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good nlohmann-json vim-native libcamera cmake-native"
 
